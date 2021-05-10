@@ -7,14 +7,15 @@ const refs = {
 
 class CountdownTimer {
   constructor({ targetDate }) {
+    this.targetDate = targetDate
     this.init();
   }
 
   init() {
-    const targetDate = new Date("Jul 17, 2021");
+    
     setInterval(() => {
       const initTime = Date.now();
-      const deltaTime = targetDate.getTime() - initTime;
+      const deltaTime = this.targetDate.getTime() - initTime;
       const time = this.getTimeComponents(deltaTime);
       this.updateTimerValue(time);
     }, 1000);
@@ -45,7 +46,7 @@ class CountdownTimer {
 
 const timer = new CountdownTimer({
   selector: "#timer-1",
-  targetDate: new Date("Jul 17, 2019"),
+  targetDate: new Date("Jul 17, 2021"),
 });
 
 ///////Функции без конструктора//////////////////////////////////////////////////////
